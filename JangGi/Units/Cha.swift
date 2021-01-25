@@ -43,11 +43,11 @@ class Cha {
             let num = Variables.getNum(place: place, point: point)
             //이동 가능
             if num == 0 {
-                guide.guideBlock(position: point, movable: true)
+                guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
             //상대편 장기알 먹을수 있음
             }else if num != 0 && num != currentNum {
-                guide.guideBlock(position: point, movable: false)
+                guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                 break
             //같은 편이어서 이동 불가
@@ -63,11 +63,11 @@ class Cha {
             let num = Variables.getNum(place: place, point: point)
             //이동 가능
             if num == 0 {
-                guide.guideBlock(position: point, movable: true)
+                guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
             //상대편 장기알 먹을수 있음
             }else if num != 0 && num != currentNum {
-                guide.guideBlock(position: point, movable: false)
+                guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                 break
             //같은 편이어서 이동 불가
@@ -83,11 +83,11 @@ class Cha {
             let num = Variables.getNum(place: place, point: point)
             //이동 가능
             if num == 0 {
-                guide.guideBlock(position: point, movable: true)
+                guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
             //상대편 장기알 먹을수 있음
             }else if num != 0 && num != currentNum {
-                guide.guideBlock(position: point, movable: false)
+                guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                 break
             //같은 편이어서 이동 불가
@@ -103,11 +103,11 @@ class Cha {
             let num = Variables.getNum(place: place, point: point)
             //이동 가능
             if num == 0 {
-                guide.guideBlock(position: point, movable: true)
+                guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
             //상대편 장기알 먹을수 있음
             }else if num != 0 && num != currentNum {
-                guide.guideBlock(position: point, movable: false)
+                guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                 break
             //같은 편이어서 이동 불가
@@ -124,11 +124,11 @@ class Cha {
                 
                 //이동 가능
                 if num == 0 {
-                    guide.guideBlock(position: point, movable: true)
+                    guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                     Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                 //상대편 장기알 먹을수 있음
                 }else if num != 0 && num != currentNum {
-                    guide.guideBlock(position: point, movable: false)
+                    guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                     Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     break
                 //같은 편이어서 이동 불가
@@ -146,11 +146,11 @@ class Cha {
                 
                 //이동 가능
                 if num == 0 {
-                    guide.guideBlock(position: point, movable: true)
+                    guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                     Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                 //상대편 장기알 먹을수 있음
                 }else if num != 0 && num != currentNum {
-                    guide.guideBlock(position: point, movable: false)
+                    guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                     Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     break
                 //같은 편이어서 이동 불가
@@ -168,11 +168,11 @@ class Cha {
                 
                 //이동 가능
                 if num == 0 {
-                    guide.guideBlock(position: point, movable: true)
+                    guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                     Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                 //상대편 장기알 먹을수 있음
                 }else if num != 0 && num != currentNum {
-                    guide.guideBlock(position: point, movable: false)
+                    guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                     Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     break
                 //같은 편이어서 이동 불가
@@ -190,11 +190,11 @@ class Cha {
                 
                 //이동 가능
                 if num == 0 {
-                    guide.guideBlock(position: point, movable: true)
+                    guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                     Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                 //상대편 장기알 먹을수 있음
                 }else if num != 0 && num != currentNum {
-                    guide.guideBlock(position: point, movable: false)
+                    guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                     Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     break
                 //같은 편이어서 이동 불가
@@ -214,11 +214,11 @@ class Cha {
                     
                     //이동 가능
                     if num == 0 {
-                        guide.guideBlock(position: point, movable: true)
+                        guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     //상대편 장기알 먹을수 있음
                     }else if num != 0 && num != currentNum {
-                        guide.guideBlock(position: point, movable: false)
+                        guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     }
                     
@@ -229,11 +229,11 @@ class Cha {
                     
                     //이동 가능
                     if num == 0 {
-                        guide.guideBlock(position: point, movable: true)
+                        guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     //상대편 장기알 먹을수 있음
                     }else if num != 0 && num != currentNum {
-                        guide.guideBlock(position: point, movable: false)
+                        guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     }
                     
@@ -244,11 +244,11 @@ class Cha {
                     
                     //이동 가능
                     if num == 0 {
-                        guide.guideBlock(position: point, movable: true)
+                        guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     //상대편 장기알 먹을수 있음
                     }else if num != 0 && num != currentNum {
-                        guide.guideBlock(position: point, movable: false)
+                        guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     }
                     
@@ -259,11 +259,11 @@ class Cha {
                     
                     //이동 가능
                     if num == 0 {
-                        guide.guideBlock(position: point, movable: true)
+                        guide.guideBlock(position: point, movable: true, unit: unit, number: 10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     //상대편 장기알 먹을수 있음
                     }else if num != 0 && num != currentNum {
-                        guide.guideBlock(position: point, movable: false)
+                        guide.guideBlock(position: point, movable: false, unit: unit, number: 10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     }
                     

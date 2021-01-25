@@ -50,56 +50,56 @@ class KingSa{
             switch i {
             case 0:
                 if xValue > 3  {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: 10)
                 }
                 break
             case 1:
                 if xValue == 4 && yValue == 8 || xValue == 5 && yValue == 9 || xValue == 4 && yValue == 1 || xValue == 5 && yValue == 2{
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: 10)
                 }
                 break
             case 2:
                 if currentName.contains("_r"){
                     if yValue > 0 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                 }else {
                     if yValue > 7 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                 }
                 
                 break
             case 3:
                 if xValue == 4 && yValue == 8 || xValue == 3 && yValue == 9 || xValue == 4 && yValue == 1 || xValue == 3 && yValue == 2{
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: 10)
                 }
                 break
             case 4:
                 if xValue < 5 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: 10)
                 }
                 break
             case 5:
                 if xValue == 4 && yValue == 8 || xValue == 3 && yValue == 7 || xValue == 4 && yValue == 1 || xValue == 3 && yValue == 0{
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: 10)
                 }
                 break
             case 6:
                 if currentName.contains("_r"){
                     if yValue < 2 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     
                 }else {
                     if yValue < 9 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }   
                 }
                 break
             case 7:
                 if xValue == 4 && yValue == 8 || xValue == 5 && yValue == 7 || xValue == 4 && yValue == 1 || xValue == 5 && yValue == 0{
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: 10)
                 }
                 break
             default:
@@ -108,15 +108,15 @@ class KingSa{
         }
     }
     
-    func showGuideUnit(point : CGPoint){
+    func showGuideUnit(point : CGPoint, unit: Unit, number: Int){
         let n = Variables.getNum(place: _place, point: point)
         //이동 가능한 경우
         if n == 0 {
-            guide.guideBlock(position: point, movable: true)
+            guide.guideBlock(position: point, movable: true,unit: unit, number: number)
             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
         }else if n != 0 && n != currentNum {
         //상대편의 장기알을 먹을 수 있음
-            guide.guideBlock(position: point, movable: false)
+            guide.guideBlock(position: point, movable: false, unit: unit, number: number)
             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
         }
     }

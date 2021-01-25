@@ -13,6 +13,8 @@ class Images{
     var img_size = CGSize()
     var greenPosition = CGPoint()
     var redPosition = CGPoint()
+    var btn_xValue = 0
+    var btn_yValue = 0
     
     init(){
         switch UIDevice().name {
@@ -20,24 +22,33 @@ class Images{
             img_size = CGSize(width: 100, height: 100)
             greenPosition = CGPoint(x: Variables.scene.frame.width / 2, y: -Variables.scene.frame.height + 100)
             redPosition = CGPoint(x: Variables.scene.frame.width / 2, y: -50)
+            btn_xValue = 225
+            btn_yValue = 300
         case "iPhone 8 Plus":
             img_size = CGSize(width: 120, height: 120)
             greenPosition = CGPoint(x: Variables.scene.frame.width / 2, y: -Variables.scene.frame.height + 100)
             redPosition = CGPoint(x: Variables.scene.frame.width / 2, y: -50)
+            btn_xValue = 260
+            btn_yValue = 310
         case "iPhone 11":
             img_size = CGSize(width: 150, height: 150)
             greenPosition = CGPoint(x: Variables.scene.frame.width / 2, y: -Variables.scene.frame.height + 150)
             redPosition = CGPoint(x: Variables.scene.frame.width / 2, y: -120)
+            btn_xValue = 260
+            btn_yValue = 310
         default:
             img_size = CGSize(width: 100, height: 100)
             greenPosition = CGPoint(x: Variables.scene.frame.width / 2, y: -Variables.scene.frame.height + 100)
             redPosition = CGPoint(x: Variables.scene.frame.width / 2, y: -50)
+            btn_xValue = 225
+            btn_yValue = 300
         }
     }
     
     func setting(){
         bg()
         addToArray()
+        changeUnitPostion()
     }
     
     func addToArray(){
@@ -83,8 +94,8 @@ class Images{
         Variables.allUnits.append(Unit(point: CGPoint(x: 5, y: 0), name: "sa_r2", num: 2, imageName: "Red_Sa"))
         
         //왕 데이터 입력
-        Variables.allUnits.append(Unit(point: CGPoint(x: 4, y: 8), name: "wang_g1", num: 1, imageName: "Green_King"))
-        Variables.allUnits.append(Unit(point: CGPoint(x: 4, y: 1), name: "wang_r2", num: 2, imageName: "Red_King"))
+        Variables.allUnits.append(Unit(point: CGPoint(x: 4, y: 8), name: "wang_g", num: 1, imageName: "Green_King"))
+        Variables.allUnits.append(Unit(point: CGPoint(x: 4, y: 1), name: "wang_r", num: 2, imageName: "Red_King"))
         
         unitSetting()
     }
@@ -122,5 +133,71 @@ class Images{
         place.anchorPoint = CGPoint(x: 0, y: 1)
         place.position = CGPoint(x: Variables.interval / 2, y: Variables.startY + Variables.interval / 2)
         Variables.scene.addChild(place)
+    }
+    
+    //장기알 위치 변경
+    func changeUnitPostion(){
+        let hideNode = SKSpriteNode()
+        hideNode.size = Variables.scene.frame.size
+        hideNode.position = CGPoint(x: Variables.scene.frame.width / 2, y: -Variables.scene.frame.height / 2)
+        hideNode.color = .black
+        hideNode.alpha = 0.8
+        hideNode.zPosition = 100
+        hideNode.name = "hideNode"
+        
+        let start = SKSpriteNode(imageNamed: "start_btn")
+        start.setScale(0.4)
+        start.position = CGPoint(x: 0, y: 20)
+        start.name = "start"
+        start.zPosition = 103
+        hideNode.addChild(start)
+        
+        //버튼 애니메이션
+        let action = SKAction.scale(by:1.03, duration: 0.5)
+        let action1 = SKAction.scale(by:0.97, duration: 0.5)
+        let sequence = SKAction.sequence([action,action1])
+        
+        let btn1 = SKSpriteNode(imageNamed: "replace_btn")
+        btn1.setScale(1)
+        btn1.anchorPoint = CGPoint(x: 0.5, y:0.5)
+        btn1.position = CGPoint(x: -btn_xValue, y: -btn_yValue)
+        btn1.zPosition = 105
+        btn1.name = "btn1"
+        btn1.run(SKAction.repeatForever(sequence))
+        start.addChild(btn1)
+        
+        let btn2 = SKSpriteNode(imageNamed: "replace_btn")
+        btn2.setScale(1)
+        btn2.anchorPoint = CGPoint(x: 0.5, y:0.5)
+        btn2.position = CGPoint(x: btn_xValue, y: -btn_yValue)
+        btn2.zPosition = 105
+        btn2.name = "btn2"
+        btn2.run(SKAction.repeatForever(sequence))
+        start.addChild(btn2)
+        
+        let btn3 = SKSpriteNode(imageNamed: "replace_btn")
+        btn3.setScale(1)
+        btn3.anchorPoint = CGPoint(x: 0.5, y:0.5)
+        btn3.position = CGPoint(x: -btn_xValue, y: btn_yValue)
+        btn3.zPosition = 105
+        btn3.name = "btn3"
+        btn3.run(SKAction.repeatForever(sequence))
+        start.addChild(btn3)
+        
+        let btn4 = SKSpriteNode(imageNamed: "replace_btn")
+        btn4.setScale(1)
+        btn4.anchorPoint = CGPoint(x: 0.5, y:0.5)
+        btn4.position = CGPoint(x: btn_xValue, y: btn_yValue)
+        btn4.zPosition = 105
+        btn4.name = "btn4"
+        btn4.run(SKAction.repeatForever(sequence))
+        start.addChild(btn4)
+        
+        Variables.scene.addChild(hideNode)
+        for item in Variables.scene.children {
+            if item.name!.contains("ma") || item.name!.contains("seng"){
+                item.zPosition = 101
+            }
+        }
     }
 }

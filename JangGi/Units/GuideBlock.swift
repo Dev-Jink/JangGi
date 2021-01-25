@@ -9,7 +9,9 @@ import Foundation
 import SpriteKit
 
 class GuideBlock{
-    func guideBlock(position : CGPoint , movable : Bool){
+    
+    
+    func guideBlock(position : CGPoint , movable : Bool, unit : Unit, number : Int){
         let block = SKSpriteNode()
         block.size = CGSize(width: Variables.interval - 2, height: Variables.interval - 2)
         let imageName = movable ? "guide_G" : "guide_R"
@@ -21,5 +23,7 @@ class GuideBlock{
         let yValue = Variables.startY - (Int(position.y) * Variables.interval)
         block.position = CGPoint(x: xValue, y: yValue)
         Variables.scene.addChild(block)
+        
+        
     }
 }

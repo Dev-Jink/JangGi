@@ -37,11 +37,11 @@ class Po{
                         let name = Variables.getName(place: place, point: point)
                         //이동가능
                         if num == 0 {
-                            guide.guideBlock(position: point, movable: true)
+                            guide.guideBlock(position: point, movable: true, unit: unit, number:10)
                             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                         }else if num != 0 && num != currentNum {
                             if !name.contains("po"){
-                                guide.guideBlock(position: point, movable: true)
+                                guide.guideBlock(position: point, movable: false, unit: unit, number:10)
                                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                             }
                             break
@@ -72,11 +72,11 @@ class Po{
                         let name = Variables.getName(place: place, point: point)
                         //이동가능
                         if num == 0 {
-                            guide.guideBlock(position: point, movable: true)
+                            guide.guideBlock(position: point, movable: true, unit: unit, number:10)
                             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                         }else if num != 0 && num != currentNum {
                             if !name.contains("po"){
-                                guide.guideBlock(position: point, movable: true)
+                                guide.guideBlock(position: point, movable: false, unit: unit, number:10)
                                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                             }
                             break
@@ -107,11 +107,11 @@ class Po{
                         let name = Variables.getName(place: place, point: point)
                         //이동가능
                         if num == 0 {
-                            guide.guideBlock(position: point, movable: true)
+                            guide.guideBlock(position: point, movable: true, unit: unit, number:10)
                             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                         }else if num != 0 && num != currentNum {
                             if !name.contains("po"){
-                                guide.guideBlock(position: point, movable: true)
+                                guide.guideBlock(position: point, movable: false, unit: unit, number:10)
                                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                             }
                             break
@@ -142,11 +142,11 @@ class Po{
                         let name = Variables.getName(place: place, point: point)
                         //이동가능
                         if num == 0 {
-                            guide.guideBlock(position: point, movable: true)
+                            guide.guideBlock(position: point, movable: true, unit: unit, number:10)
                             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                         }else if num != 0 && num != currentNum {
                             if !name.contains("po"){
-                                guide.guideBlock(position: point, movable: true)
+                                guide.guideBlock(position: point, movable: false, unit: unit, number:10)
                                 Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                             }
                             break
@@ -173,11 +173,11 @@ class Po{
                 
                 if num == 0 {
                     if num == 0 {
-                        guide.guideBlock(position: point, movable: true)
+                        guide.guideBlock(position: point, movable: true, unit: unit, number:10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     }else if num != 0 && num != currentNum {
                         if !name.contains("po"){
-                            guide.guideBlock(position: point, movable: true)
+                            guide.guideBlock(position: point, movable: false, unit: unit, number:10)
                             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                         }
                     }
@@ -199,11 +199,11 @@ class Po{
                 
                 if num == 0 {
                     if num == 0 {
-                        guide.guideBlock(position: point, movable: true)
+                        guide.guideBlock(position: point, movable: true, unit: unit, number:10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     }else if num != 0 && num != currentNum {
                         if !name.contains("po"){
-                            guide.guideBlock(position: point, movable: true)
+                            guide.guideBlock(position: point, movable: false, unit: unit, number:10)
                             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                         }
                     }
@@ -225,11 +225,11 @@ class Po{
                 
                 if num == 0 {
                     if num == 0 {
-                        guide.guideBlock(position: point, movable: true)
+                        guide.guideBlock(position: point, movable: true, unit: unit, number:10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     }else if num != 0 && num != currentNum {
                         if !name.contains("po"){
-                            guide.guideBlock(position: point, movable: true)
+                            guide.guideBlock(position: point, movable: false, unit: unit, number:10)
                             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                         }
                     }
@@ -251,11 +251,11 @@ class Po{
                 
                 if num == 0 {
                     if num == 0 {
-                        guide.guideBlock(position: point, movable: true)
+                        guide.guideBlock(position: point, movable: true, unit: unit, number:10)
                         Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                     }else if num != 0 && num != currentNum {
                         if !name.contains("po"){
-                            guide.guideBlock(position: point, movable: true)
+                            guide.guideBlock(position: point, movable: false, unit: unit, number:10)
                             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
                         }
                     }

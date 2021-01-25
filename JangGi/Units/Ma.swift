@@ -58,49 +58,49 @@ class Ma{
             //좌측 위
             case 0:
                 if xValue - 2 >= 0 && yValue - 1 >= 0 && leftValue == 0 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: i)
                 }
                 break
             //좌측 아래
             case 1:
                 if xValue - 2 >= 0 && yValue + 1 <= 9 && leftValue == 0 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: i)
                 }
                 break
             //우측 위
             case 2:
                 if xValue + 2 <= 8 && yValue - 1 >= 0 && rightValue == 0 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: i)
                 }
                 break
             //우측 아래
             case 3:
                 if xValue + 2 <= 8 && yValue + 1 <= 9 && rightValue == 0 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: i)
                 }
                 break
             //위 그리고 우측
             case 4:
                 if xValue + 1 <= 8 && yValue - 2 >= 0 && topValue == 0 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: i)
                 }
                 break
             //위 그리고 좌측
             case 5:
                 if xValue - 1 >= 0 && yValue - 2 >= 0 && topValue == 0 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: i)
                 }
                 break
             //아래 그리고 우측
             case 6:
                 if xValue + 1 <= 8 && yValue + 2 <= 9 && bottomValue == 0 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: i)
                 }
                 break
             //아래 그리고 좌측
             case 7:
                 if xValue - 1 >= 0 && yValue + 2 <= 9 && bottomValue == 0 {
-                    showGuideUnit(point: item)
+                    showGuideUnit(point: item, unit: unit, number: i)
                 }
                 break
             default:
@@ -109,15 +109,15 @@ class Ma{
         }
     }
     
-    func showGuideUnit(point : CGPoint){
+    func showGuideUnit(point : CGPoint, unit : Unit, number : Int){
         let n = Variables.getNum(place: _place, point: point)
         //이동 가능한 경우
         if n == 0 {
-            guide.guideBlock(position: point, movable: true)
+            guide.guideBlock(position: point, movable: true, unit: unit, number: number)
             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
         }else if n != 0 && n != currentNum {
         //상대편의 장기알을 먹을 수 있음
-            guide.guideBlock(position: point, movable: false)
+            guide.guideBlock(position: point, movable: false, unit: unit, number: number)
             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
         }
     }

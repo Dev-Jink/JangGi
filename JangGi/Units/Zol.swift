@@ -46,27 +46,27 @@ class Zol {
                 switch i {
                 case 0:
                     if xValue - 1 >= 0 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 case 1:
                     if xValue + 1 <= 8 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 case 2:
                     if yValue - 1 >= 0 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 case 3:
                     if xValue == 5 && yValue == 2 || xValue == 4 && yValue == 1 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 case 4:
                     if xValue == 3 && yValue == 2 || xValue == 4 && yValue == 1 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 default:
@@ -80,27 +80,27 @@ class Zol {
                 switch i {
                 case 0:
                     if xValue - 1 >= 0 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 case 1:
                     if xValue + 1 <= 8 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 case 2:
                     if yValue + 1 <= 9 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 case 3:
                     if xValue == 5 && yValue == 7 || xValue == 4 && yValue == 8 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 case 4:
                     if xValue == 3 && yValue == 7 || xValue == 4 && yValue == 8 {
-                        showGuideUnit(point: item)
+                        showGuideUnit(point: item, unit: unit, number: 10)
                     }
                     break;
                 default:
@@ -110,15 +110,15 @@ class Zol {
         }
     }
     
-    func showGuideUnit(point : CGPoint){
+    func showGuideUnit(point : CGPoint, unit: Unit, number: Int){
         let n = Variables.getNum(place: _place, point: point)
         //이동 가능한 경우
         if n == 0 {
-            guide.guideBlock(position: point, movable: true)
+            guide.guideBlock(position: point, movable: true, unit: unit, number: number)
             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
         }else if n != 0 && n != currentNum {
         //상대편의 장기알을 먹을 수 있음
-            guide.guideBlock(position: point, movable: false)
+            guide.guideBlock(position: point, movable: false, unit: unit, number: number)
             Variables.guideUnits.append(Unit(point: point, name: currentName, num: currentNum))
         }
     }

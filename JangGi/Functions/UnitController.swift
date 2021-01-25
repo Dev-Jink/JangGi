@@ -64,12 +64,14 @@ class UnitController {
         let action = SKAction.move(to: point, duration: 0.1)
         //이동할 장기알 찾아서 이동
         if let node = Variables.scene.childNode(withName: name){
-            node.run(action){
-                //장군 & 멍군 체크
-                self.checkJang(place: Variables.allUnits)
-                //턴 체인지 체크
-                self.checkIsGreenTurn()
-            }
+            node.run(action)
+            //효과음
+            node.run(SKAction.playSoundFileNamed("sound-1.wav", waitForCompletion: false))
+            //턴 체인지 체크
+            self.checkIsGreenTurn()
+            //장군 & 멍군 체크
+            self.checkJang(place: Variables.allUnits)
+            
         }
     }
     
@@ -81,7 +83,7 @@ class UnitController {
         
         //장군 체크
         if !isJang {
-            if Variables.isGreenTurn {
+            if !Variables.isGreenTurn {
                 for item in place {
                     if item.name.contains("_g") {
                         movable(place: place, unit: item)
@@ -102,7 +104,7 @@ class UnitController {
             }
         }else {
         //멍군 체크
-            if Variables.isGreenTurn {
+            if !Variables.isGreenTurn {
                 for item in place {
                     if item.name.contains("_r") {
                         movable(place: place, unit: item)
@@ -140,10 +142,13 @@ class UnitController {
                 print("장")
             }
         }else {
-            if mung.isEmpty {
-                isJang = false
-                effectJang(isJang: isJang)
-                print("멍")
+            //게임오버 체크
+            if !checkGameOver(place: Variables.allUnits){
+                if mung.isEmpty {
+                    isJang = false
+                    effectJang(isJang: isJang)
+                    print("멍")
+                }
             }
         }
     }
@@ -231,4 +236,56 @@ class UnitController {
         Variables.scene.addChild(redOffImage)
 
     }
+    
+    //게임 오버 체크
+    func checkGameOver(place: [Unit]) -> Bool{
+        let greenKing = place.filter({$0.name == "wang_g"})
+        let redKing = place.filter({$0.name == "wang_r"})
+        var result = false
+        
+        if greenKing.isEmpty{
+            print("green GameOver")
+            result = true
+            gameOver(isGreen: false)
+            
+        }
+        if redKing.isEmpty{
+            print("red GameOver")
+            result = true
+            gameOver(isGreen: true)
+        }
+        
+        return result
+    }
+    
+    func gameOver(isGreen : Bool){
+        
+        let texture = isGreen ? "cho_win" : "han_win"
+
+        for item in Variables.scene.children {
+            if item.name == "turnImage"{
+                item.removeFromParent()
+            }
+        }
+        let bg = SKSpriteNode()
+    
+        bg.color = .black
+        bg.alpha = 0.9
+        bg.zPosition = 50
+    
+        bg.position = CGPoint(x: Variables.scene.frame.width / 2, y: -Variables.scene.frame.height / 2)
+        bg.size = CGSize(width: Variables.scene.frame.width, height: Variables.scene.frame.height)
+        bg.name = "gameOver"
+        
+        let image = SKSpriteNode()
+        image.texture = SKTexture(imageNamed: texture)
+        image.position = CGPoint(x: 0, y: 0)
+        image.size = CGSize(width: 400, height: 300)
+        image.zPosition = 1
+        image.name = "restart"
+        bg.addChild(image)
+        Variables.scene.addChild(bg)
+    }
+    
+    
 }
